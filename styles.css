@@ -1,0 +1,45 @@
+
+body{
+  background-color: white;
+}
+
+.output-container{
+    
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns:  repeat(4, 1fr);
+
+    column-gap: 30px;
+    row-gap: 30px;
+    margin: 30px;
+  }
+
+  .grid-item{
+     
+  }
+
+  .feature{
+    grid-column: span 2;
+    grid-row: span 3;
+    
+  }
+
+
+
+
+  iframe{
+ 
+    width: 100%;
+    height: 100%;
+    display:inline-flex;
+  border-style: none ;
+  }
+
+  img{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: flex;
+    display:inline-flex;
+  
+  }
