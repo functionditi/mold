@@ -1,27 +1,51 @@
-html, body {
-  margin: 0;
-  font-family:'Courier New', Courier, monospace;
-  font-weight:600;
-/*   
-  @font-face {
-    font-family: 'PP Mori';
-    src: url('fonts/PPMori-SemiBold.otf') format('truetype');
-    font-weight: 100;
- } */
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: normal;
+  src: url('ABC Diatype Semi-Mono/ABCDiatypeSemi-Mono-Regular-Trial.woff') format('truetype');
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: bold;
+  src: url('ABC Diatype Semi-Mono/ABCDiatypeSemi-Mono-Bold-Trial.woff') format('truetype');
+}
+
+body{
+  margin: 0%;
+  font-family: 'Neue Montreal';
 }
 canvas {
+
   display: block;
 }
 
 
-h3{
-  padding: 30px 30px 0px 30px;
+h1 {
+  font-family: 'Neue Montreal';
+  font-weight: bold;
+  padding: 00px 30px 0px 30px;
+  font-size: 3rem;
 }
 
+h2, h3, h4{
+  font-family: 'Neue Montreal';
+  font-weight: normal;
+  padding: 00px 30px 0px 30px;
+}
+
+
+
 .metadata{
-  
- 
   padding-bottom: 2rem;
+}
+
+.overlay-container{
+  position: absolute;
+  background-color: white;
+  margin: 100px;
+  /* border: 3px solid; */
+  width: 80%;
+  padding: 2rem;
+  
 }
 
 .output-container{
@@ -84,8 +108,4 @@ img{
   height: flex;
   display:inline-flex;
 
-}
-
-.external-image{
- 
 }

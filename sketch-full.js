@@ -11,9 +11,9 @@ let noiseVal=0;
 
 
 function setup() {
-  createCanvas(500, 500);
-  sample = createGraphics(500, 500);
-  grid = createGraphics(500, 500);
+  createCanvas(windowWidth, windowHeight);
+  sample = createGraphics(windowWidth, windowHeight);
+  grid = createGraphics(windowWidth, windowHeight);
   noLoop();
   colorsbg=[ '#ffffff',];
 
@@ -115,14 +115,14 @@ function draw() {
   let status_grids='no';
   let status_bloom='no';
   console.log(rarity_factor)
-  if (rarity_factor<0.2){
+  
     drawBloom();
     status_bloom='yes';
-  }
-  if (rarity_factor<0.7){
+  
+ 
     drawGrid();
     status_grids='yes';
-  }
+  
   detectSample();
   
   let metadata_text=document.querySelector(".metadata");
@@ -165,10 +165,10 @@ function drawPerlin(){
   console.log("this is perlin sep "+ sep);
   let lod=2+fxrand()*7;
   let falloff=(fxrand()*0.25)+0.05;
-  for (var i=0; i<height; i+=sep)
+  for (var i=0; i<width; i+=sep)
     {
       xoff=0;
-      for (var j=0; j<width-0; j+=sep)
+      for (var j=0; j<height-0; j+=sep)
           {
 
             sample.push();
@@ -191,7 +191,7 @@ function detectSample(){
 
   let pixel;
   let grid_pixel;
-  for (let i=0; i<20000; i++){
+  for (let i=0; i<80000; i++){
     let xSample=fxrand()*width;
    let ySample=fxrand()*height;
     
