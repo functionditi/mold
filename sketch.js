@@ -62,13 +62,15 @@ setA=[[//penicillium
 
 function draw() {
 
-  let rarity_factor=Math.random();
+  
+
+  let rarity_factor=fxrand();
   let index_c;
   if (rarity_factor<0.8){
-    index_c=Math.floor(Math.random()*3);
+    index_c=Math.floor(fxrand()*3);
   }
   else
-    index_c=3+Math.floor(Math.random()*3);
+    index_c=3+Math.floor(fxrand()*3);
   console.log(index_c)
   let index_r=[];
   let status_color;
@@ -87,18 +89,19 @@ function draw() {
       break;
   }
   
+  
   //i should fix the logic
   for (let i=0; i<6; i++){
-    index_r[i]=Math.floor(Math.random()*5);
+    index_r[i]=Math.floor(fxrand()*5);
     for (let j=i-1; j>=0; j--){
       while(index_r[i]==index_r[j]){
-            index_r[i]=Math.floor(Math.random()*5);
+            index_r[i]=Math.floor(fxrand()*5);
       }
       
     }
   }
 
-  
+  document.body.style.backgroundColor = setA[index_c][index_r[4]].color;
   console.log(index_r[0], index_r[1], index_r[2], index_r[3], index_r[4]);
   layer1col=setA[index_c][index_r[0]].color;
   gridcol=setA[index_c][index_r[1]].color;
@@ -124,14 +127,14 @@ function draw() {
   }
   detectSample();
   
-  
-let div = createDiv('').size(500, 100);
-    div.html("grids "+status_grids+"; bloom "+status_bloom+"; color "+status_color+";");
+  let metadata_text=document.querySelector(".metadata");
+  //clockx.innerHTML =  hoursx + ":" + minutesx + ":" + secondsx +"<br>";
+    metadata_text.innerHTML="grids "+status_grids+" / bloom "+status_bloom+" / color "+status_color;
 }
 
 function drawGrid(){
   yoff=0;
-  let sep=5+Math.floor(Math.random()*10)*10;
+  let sep=5+Math.floor(fxrand()*10)*10;
   console.log("This is grid sep "+sep);
   for (var i=0; i<height; i+=sep)
     {
@@ -159,11 +162,11 @@ function drawGrid(){
 
 function drawPerlin(){
   yoff=0;
-  let sep=Math.floor(Math.random()*12)+3;
+  let sep=Math.floor(fxrand()*12)+3;
   //let sep=int(random(3, 15));
   console.log("this is perlin sep "+ sep);
-  let lod=2+Math.random()*7;
-  let falloff=(Math.random()*0.25)+0.05;
+  let lod=2+fxrand()*7;
+  let falloff=(fxrand()*0.25)+0.05;
   for (var i=0; i<height; i+=sep)
     {
       xoff=0;
@@ -191,8 +194,8 @@ function detectSample(){
   let pixel;
   let grid_pixel;
   for (let i=0; i<20000; i++){
-    let xSample=Math.random()*width;
-   let ySample=Math.random()*height;
+    let xSample=fxrand()*width;
+   let ySample=fxrand()*height;
     
     
      noStroke();
@@ -202,41 +205,41 @@ function detectSample(){
           if (brightness(grid_pixel)<5){
              fill(gridcol);
             
-              ellipse(xSample, ySample, Math.floor(Math.random()*7));
+              ellipse(xSample, ySample, Math.floor(fxrand()*7));
         }
      pixel=sample.get(xSample, ySample);
      
           if (brightness(pixel)<40 && brightness(pixel)>=30){
            fill(layer1col);
-            ellipse(xSample, ySample, Math.floor(Math.random()*7));
+            ellipse(xSample, ySample, Math.floor(fxrand()*7));
           }
 
            if (brightness(pixel)<30 && brightness(pixel)>=20){
         
             fill(layer2col);
-            ellipse(xSample, ySample, Math.floor(Math.random()*7));
+            ellipse(xSample, ySample, Math.floor(fxrand()*7));
         }
           if (brightness(pixel)<20 && brightness(pixel)>5){
             fill(layer3col);
-            ellipse(xSample, ySample, Math.floor(Math.random()*7));
+            ellipse(xSample, ySample, Math.floor(fxrand()*7));
         }
   
 }
 }
 
 function drawBloom(){
-  let n_blooms=Math.floor(Math.random()*6)+2;
+  let n_blooms=Math.floor(fxrand()*6)+2;
   for (let n=0; n<n_blooms; n++){
     push();
-    translate(Math.random()*width, Math.random()*height);
-      phase=Math.random()*100;
-    zoff=Math.random()*5;
+    translate(fxrand()*width, fxrand()*height);
+      phase=fxrand()*100;
+    zoff=fxrand()*5;
    
-    let noiseMax = map(Math.random(), 0, 1, 1, 5);
-    let spread=(Math.random()*2.8)+0.2;  
+    let noiseMax = map(fxrand(), 0, 1, 1, 5);
+    let spread=(fxrand()*2.8)+0.2;  
   
-    let compactness=(Math.random()*(spread-0.1))+0.1;     
-    let strokeVal=Math.floor(Math.random()*colorsSetC.length);
+    let compactness=(fxrand()*(spread-0.1))+0.1;     
+    let strokeVal=Math.floor(fxrand()*colorsSetC.length);
     stroke(colorsSetC[strokeVal]);
     console.log("This is strokeVal in drawBloom "+strokeVal);
     for (let i=0; i<spread; i+=compactness){
@@ -252,7 +255,7 @@ function drawBloom(){
           let x = r * cos(a);
           let y = r * sin(a);
          
-             let size=random(0.05,0.2);
+             let size=(fxrand()*0.15)+0.05;    
           point(x*i*size, y*i*size);
       } 
     }
@@ -268,4 +271,15 @@ function keyPressed() {
   if (keyCode==83) {
     saveCanvas('mold', 'png');
   }
+}
+
+function getFeatureString(value) {
+  if (value < 0.5) return "low"
+  if (value < 0.9) return "medium"
+  else return "high"
+}
+
+window.$fxhashFeatures = {
+  // feature can only be "low", "medium" or "high"
+  "Super": getFeatureString(fxrand())
 }

@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  font-family:'Courier New', Courier, monospace;
+  font-weight:600;
+/*   
+  @font-face {
+    font-family: 'PP Mori';
+    src: url('fonts/PPMori-SemiBold.otf') format('truetype');
+    font-weight: 100;
+ } */
+}
+canvas {
+  display: block;
+}
+
+
+.metadata{
+  
+ 
+  padding-bottom: 2rem;
+}
+
+.output-container{
+    
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns:  repeat(4, 1fr);
+  grid-template-rows:  repeat(4, 1fr);
+  column-gap: 30px;
+  row-gap: 30px;
+  margin: 30px;
+}
+
+.grid-item{
+  background-color: #fff;
+  border: 3px solid;
+  
+}
+
+.grid-subitem{
+  margin: 10px;
+  display: grid;
+  grid-template-columns:  repeat(8, 1fr);
+  grid-template-rows:  repeat(2, 1fr);
+  column-gap:10px;
+ 
+}
+
+.grid-text{
+  
+  
+  grid-column: span 6;
+}
+
+.grid-qr{
+
+  grid-column: span 2;
+ grid-row: span 2;
+}
+
+.feature{
+  grid-column: span 2;
+  grid-row: span 3;
+  
+}
+
+
+iframe{
+
+  width: 100%;
+  height: 100%;
+  display:inline-flex;
+border-style: none ;
+}
+
+img{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: flex;
+  display:inline-flex;
+
+}
