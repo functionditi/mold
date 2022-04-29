@@ -100,6 +100,7 @@ function draw() {
   }
 
   document.body.style.backgroundColor = setA[index_c][index_r[4]].color;
+  
   console.log(index_r[0], index_r[1], index_r[2], index_r[3], index_r[4]);
   layer1col=setA[index_c][index_r[0]].color;
   gridcol=setA[index_c][index_r[1]].color;
