@@ -23,8 +23,10 @@ fetch('https://api.airtable.com/v0/app69FfGiH9XszKX7/mold', {
         }">
         <div class="grid-subitem">
         <div class="grid-qr"><img style="width: 100%;" src="./assets/qr-code.png"></div>
-        <div class="grid-text">${output.fields.number} trait trait trait</div>
-        <div class="grid-text">serratia marcescens</div>
+        <div class="specimen-type">${output.fields.color}</div>
+        <div class="grid-text">Grids: ${output.fields.grids}</div>
+        <div class="grid-text">Bloom: ${output.fields.bloom}</div>
+        <div class="grid-text">Fuzz: ${output.fields.fuzz}</div>
         </div>
             
             
