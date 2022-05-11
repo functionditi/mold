@@ -73,13 +73,16 @@ function draw() {
   
   const colorh1=document.querySelector('.colortitle');
   colorh1.innerHTML=`<div class="overlay-container" style="background-color: ${gridcol};">
-  <h1 style="color:${bgcol};">hyperphae. </h1>
+  <h1 style="color:${layer2col};">hyperphae. </h1>
   <h2 style="color:${bgcol};">Mold in real life is pretty but also pretty gross.</h2>
   <h2 style="color:${bgcol};"> This project uses perlin noise and random() to mimic mold growth and combines organic processes with systemisation in a format abstracted from microbiological nature.</h2>
    <h2><a style="color:${bgcol}"; href="./gallery.html">See the gallery</a></h2> 
   </div>
   
   `;
+
+
+
   background(bgcol);
   drawPerlin();
   assignRarity();

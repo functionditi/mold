@@ -37,24 +37,82 @@
         //---- /do not edit the following code
       </script>
       <link rel="stylesheet" type="text/css" href="./style.css">
+      <script src="JsBarcode.all.min.js"></script>
 </head>
 <body>
   <main>
    
     
         <div class="output-container">
-            <h3><a href="./index.html">Back</a></h3>
-        </div>
-          <div class="metadata">
-      
+           <div class="negative-space overlay-container" style="background-color: #a7ba92;">
+            <h1 style="color: #FFEA9E;">gallery.</h1>
+             <h2>
+             See all the outcomes and their attributes here.  <br><br>
+              <a  style="color: #3e7277;"href="./index.html">Back</a></h2>
+             
+            
+             
+            </div> 
+          
           </div>
-      
-   
+          
+         
   
   </main>
   
-  <script src="./script.js"></script>
-     
+  <script>
+    console.log("hi")
+
+fetch('https://api.airtable.com/v0/app69FfGiH9XszKX7/mold', {
+    headers:{
+        Authorization: 'Bearer keyctJlPuX2trmpxu',
+    },
+})
+    .then(response=>response.json())
+    .then(data=>{
+    console.log(data);
+
+    const outputContainer=document.querySelector('.output-container');
+
+    data.records
     
+    .forEach(output=>  {
+        console.log(output);
+
+        outputContainer.innerHTML+=`
+        <div class="grid-item">
+       
+        <img src="${
+            output.fields.outputImg[0].thumbnails.large.url
+        }"> 
+      
+        <svg id="${output.id}" style="width:30%;"></svg>
+        
+        </div>
+        `
+       
+
+        var idName="#"+output.id;
+        JsBarcode(idName, output.fields.color, {
+  format: "CODE128",
+  width: 0.5,
+  height: 20,
+  fontSize: 10,
+  background: "#fff",
+  lineColor: "#3e7277",
+  font: "Diatype Mono",
+  textAlign: "left",
+  margin:0,
+  marginTop:10
+});
+
+    });
+});
+
+
+  </script>
+  <script>
+   JsBarcode("#barcode", "Discombobulated!");
+         </script>
 </body>
 </html>
