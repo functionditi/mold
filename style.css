@@ -171,9 +171,9 @@ img{
   width: 60px;
   height: 60px;
   margin: -76px 0 0 -76px;
-  border: 16px solid #fff;
+  border: 6px solid #fff;
   border-radius: 100%;
-  border-top: 16px solid indianred;
+  border-top: 6px solid indianred;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
  
@@ -224,7 +224,7 @@ img{
   grid-row: 1 /span 3;
 }
 
-.imgLink { border: none; background: none; }
+/* .imgLink { border: none; background: none; }
 .imgLink img
 {
   height: 100%;
@@ -234,4 +234,20 @@ img{
 {
   height: 200%;
   width: 200%;
+} */
+
+#generate-sketch{
+  grid-column: span 2;
+  grid-row: span 2;
+ 
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+#metadata{
+
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
 }
