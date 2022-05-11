@@ -21,6 +21,7 @@ fetch('https://api.airtable.com/v0/app69FfGiH9XszKX7/mold', {
         <img src="${
             output.fields.outputImg[0].thumbnails.large.url
         }">
+        
         <div class="grid-subitem">
         <div class="grid-qr"><img style="width: 100%;" src="./assets/qr-code.png"></div>
         <div class="specimen-type">${output.fields.color}</div>
@@ -35,4 +36,6 @@ fetch('https://api.airtable.com/v0/app69FfGiH9XszKX7/mold', {
         `
     });
 });
+
+
 

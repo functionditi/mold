@@ -8,11 +8,7 @@
   font-weight: bold;
   src: url('ABC Diatype Semi-Mono/ABCDiatypeSemi-Mono-Bold-Trial.woff') format('truetype');
 }
-@font-face {
-  font-family: 'Diatype';
-  font-weight: bold;
-  src: url('ABC Diatype/ABCDiatype-Regular-Trial.woff') format('truetype');
-}
+
 
 body{
   margin: 0%;
@@ -28,8 +24,17 @@ canvas {
 h1 {
   font-family: 'Diatype Mono';
   font-weight: bold;
-  padding: 00px 30px 0px 30px;
-  font-size: 3rem;
+  padding: 0px;
+  font-size: 3vw;
+  margin: 2rem;
+}
+
+h2{
+  font-family: 'Diatype Mono';
+  font-weight: normal;
+  padding: 0px;
+  margin: 2rem;
+  font-size: 1vw;
 }
 
 
@@ -37,16 +42,16 @@ h1 {
 h3{
   font-family: 'Diatype Mono';
   font-weight: normal;
-  padding: 00px 30px 0px 30px;
-  font-size: 1rem;
+  
+  font-size: 1vw;
 }
 
 a{
-  color: indianred;
+  color: #fff;
 }
 
 a:hover{
-  color:aqua;
+  color:indianred;
 }
 
 
@@ -63,19 +68,21 @@ p{
 
 .overlay-container{
   position: absolute;
-  background-color: white;
-  margin-left: 80px;
-  /* border: 3px solid; */
-  width: 35%;
-  padding: 1rem;
   
+ 
+  /* border: 3px solid; */
+  width: 25%;
+  height: 90%;
+  padding: 0rem;
+  border-radius: 15px;
+margin: 2rem;
 }
 
 .output-container{
   
   min-height: 100vh;
   display: grid;
-  grid-template-columns:  repeat(4, 1fr);
+  grid-template-columns:  repeat(5, 1fr);
   grid-template-rows:  repeat(4, 1fr);
   column-gap: 20px;
   row-gap: 20px;
@@ -135,4 +142,61 @@ img{
   height: flex;
   display:inline-flex;
 
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #fff;
+  border-radius: 100%;
+  border-top: 16px solid indianred;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+ 
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+
+}
+
+
+#backgroundsketch{
+  display: none;
+ width:100vw;
 }
